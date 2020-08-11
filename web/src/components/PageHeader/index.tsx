@@ -8,6 +8,7 @@ import './styles.css';
 
 interface PageHeaderProps {
     title: string;
+    description?: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
@@ -15,13 +16,14 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
         <header className="page-header">
             <div className="top-bar-container">
                 <Link to="/">
-                    <img src={backIcon} />
+                    <img src={backIcon} alt="back-button" />
                 </Link>
-                <img src={logoImg} />
+                <img src={logoImg} alt="logo" />
             </div>
 
             <div className="header-content" >
                 <strong>{props.title}</strong>
+                {props.description && <p>{props.description}</p>}
 
                 {props.children}
             </div>
